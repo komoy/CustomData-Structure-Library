@@ -60,12 +60,14 @@
         }
 
         // Method to print the array contents
+        // Method to print the array contents
         public void Print()
         {
             for (int i = 0; i < _array.Length; i++)
             {
-                Console.WriteLine($"Element at index {i}: {_array[i]}");
+                Console.WriteLine($" {_array[i]}");
             }
+            Console.WriteLine(_array.Length);
         }
     }
 }
