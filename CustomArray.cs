@@ -14,5 +14,11 @@
             _array = new T[size];
             _count = 0;
         }
+
+        public void Delete(int index)
+        {
+            //Check for outofRange
+
+        }
     }
 }
