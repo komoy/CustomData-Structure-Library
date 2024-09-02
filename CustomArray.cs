@@ -14,6 +14,7 @@
             _array = new T[size];
             _count = 0;
         }
+
         /// <summary>
         /// Method to delete an item from an array
         /// </summary>
@@ -79,5 +80,22 @@
                 Console.WriteLine($" {_array[i]}");
             }
         }
+
+        /// <summary>
+        /// Method to get the value at a specific index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+
+        public T Get(int index)
+        {
+            if (index < 0 || index >= _array.Length)
+            {
+                throw new IndexOutOfRangeException("Index is out of range.");
+            }
+
+            return _array[index];
+        }
     }
+
 }
