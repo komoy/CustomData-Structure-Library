@@ -36,10 +36,21 @@
 
         }
 
-        // function to insert item to array
-        public void Add(T item)
+
+        /// <summary>
+        /// function to insert item to array
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public void Insert(T item)
         {
+            if (_array.Length == _count)
+            {
+                Console.WriteLine("Too many items specified");
+                throw new ArgumentOutOfRangeException("index out of range");
+            }
             _array[_count++] = item;
+
         }
 
         // Property to get the length of the array
