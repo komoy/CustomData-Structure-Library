@@ -67,7 +67,6 @@
             {
                 Console.WriteLine($" {_array[i]}");
             }
-            Console.WriteLine(_array.Length);
         }
     }
 }
