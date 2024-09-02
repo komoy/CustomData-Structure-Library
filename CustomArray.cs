@@ -2,7 +2,8 @@
 {
     public class CustomArray<T> 
     {
-
-
+        /* 
+        * Constructor
+        */
     }
 }
