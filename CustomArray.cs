@@ -56,5 +56,16 @@
                 Console.WriteLine($"Element at index {i}: {_array[i]}");
             }
         }
+
+        public T this[int index]
+        {
+            get { if(index <0 || index  >=_count)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(index),"Index out of range");
+                }
+            return _array[index];
+                        
+                        }
+        }
     }
 }
