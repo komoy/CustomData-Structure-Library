@@ -22,20 +22,31 @@
         public void Delete(int index)
         {
             //Check for ArgumentOutOfRange
-            if (index < 0 || index >= _count) 
-            { 
+            if (index < 0 || index >= _count)
+            {
                 throw new ArgumentOutOfRangeException("index out of range");
             }
-            for (int i = index; i < _count-1; i++)
+            for (int i = index; i < _count - 1; i++)
             {
-                _array[i] = _array[i+1];
+                _array[i] = _array[i + 1];
 
             }
 
-            _count--;              
+            _count--;
+            Resize(_count);
 
         }
 
+        // Method to resize the array
+        public void Resize(int newSize)
+        {
+            T[] newArray = new T[newSize];
+            for (int i = 0; i < Math.Min(_array.Length, newSize); i++)
+            {
+                newArray[i] = _array[i];
+            }
+            _array = newArray;
+        }
 
         /// <summary>
         /// function to insert item to array
