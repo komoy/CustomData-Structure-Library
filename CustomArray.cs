@@ -4,6 +4,15 @@
     {
         /* 
         * Constructor
+        * 
         */
+        private T[] _array;
+        private int _count;
+
+        public CustomArray(int size)
+        {
+            _array = new T[size];
+            _count = 0;
+        }
     }
 }
