@@ -17,9 +17,13 @@ namespace Custom_Data_Structure_Library
             _top = -1;
         }
 
-        public void Pop()
+        public T Pop()
         {
-
+            if (_top == -1) 
+            {
+                throw new InvalidOperationException("Stack underflow");
+            }
+            return _stack[_top--];
         }
         public void Push(T value)
         {
@@ -28,7 +32,15 @@ namespace Custom_Data_Structure_Library
 
         public T Peek()
         {
-            return _stack[_top];// to do 
+            if (_top == -1)
+            {
+                throw new InvalidOperationException("Stack underflow");
+            }
+            return _stack[_top];
+        }
+        public bool IsEmpty()
+        {
+            return _top == -1;
         }
     }
 }
