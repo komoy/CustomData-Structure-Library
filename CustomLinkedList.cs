@@ -64,7 +64,7 @@ namespace Custom_Data_Structure_Library
             else
             {
                 Node<T> _current = _head;
-                while (_current != null)
+                while (_current.Next != null)
 
                 {
                     _current = _current.Next;
