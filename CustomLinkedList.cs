@@ -25,6 +25,7 @@ namespace Custom_Data_Structure_Library
     public class CustomLinkedList<T>
     {
         private Node<T>? _head;
+        private int _count;
         public CustomLinkedList() 
         {
             _head = null;
@@ -73,6 +74,85 @@ namespace Custom_Data_Structure_Library
                 }
                 _current.Next= new Node<T>(value);
             }
+        }
+
+        /// Method to return true or false if linkeddlist is empty or not
+        public bool Empty
+        {
+            get { return this._count == 0; }
+        }
+
+        /// Method to return count of linkeddlist
+        public int Count
+        {
+            get { return this._count; }
+        }
+
+
+        public Node<T> AddFirst(T item)
+        {
+            this._head = new Node<T>(item);
+            _count++;
+            return this._head; // Return the new head node
+        }
+
+        /// <summary>
+        /// Method to add object to linkeddlist
+        /// </summary>
+        /// <param name="index"></param>
+        /// <exception cref="ListEmptyException"></exception>
+        public T Search(T item)
+        {
+            Node<T> current = _head;
+
+            if (_head == null)
+            {
+                throw new ListEmptyException("Cannot search in an empty list.");
+            }
+
+            while (current != null)
+            {
+                if (current.Data.Equals(item))
+                {
+                    return current.Data; // Return the item
+                }
+                current = current.Next;
+            }
+
+            return default(T); // Return the default value for T if the item is not found
+        }
+
+        public int Index(T item)
+        {
+            if (_head == null)
+            {
+                throw new ListEmptyException("Cannot Index an empty list.");
+            }
+
+            Node<T> current = _head;
+            int index = 0;
+            while (current != null)
+            {
+                if (current.Data.Equals(item))
+                {
+                    return index; // Return the index of the target element
+                }
+                current = current.Next;
+                index++;
+            }
+            return -1; // Element not found
+        }
+
+        // Method to display the linked list
+        public void PrintList()
+        {
+            Node<T> current = _head;
+            while (current != null)
+            {
+                Console.Write(current.Data + " -> ");
+                current = current.Next;
+            }
+
         }
     }
 }

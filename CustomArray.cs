@@ -75,7 +75,6 @@
         }
 
         // Method to print the array contents
-        // Method to print the array contents
         public void Print()
         {
             for (int i = 0; i < _array.Length; i++)
@@ -108,7 +107,7 @@
                 }
             return _array[index];
                         
-                        }
+            }
         }
     }
 
