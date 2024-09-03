@@ -52,5 +52,27 @@ namespace Custom_Data_Structure_Library
 
 
         }
+        public void AddLast(T value)
+        {
+            if(value == null) return;
+
+            if (_head == null)
+            {
+                var node = new Node<T>(value);
+                _head = node;
+            }
+            else
+            {
+                Node<T> _current = _head;
+                while (_current != null)
+
+                {
+                    _current = _current.Next;
+
+
+                }
+                _current.Next= new Node<T>(value);
+            }
+        }
     }
 }
