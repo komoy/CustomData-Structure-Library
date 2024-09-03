@@ -24,10 +24,33 @@ namespace Custom_Data_Structure_Library
     /// <typeparam name="T"></typeparam>
     public class CustomLinkedList<T>
     {
-        private Node<T> _head;
+        private Node<T>? _head;
         public CustomLinkedList() 
         {
             _head = null;
+        }
+
+
+        public void Delete(T value) 
+        {
+            if (_head == null) return;
+            
+            if(_head.Data.Equals(value))
+            {
+                _head=_head.Next;
+            }
+            Node<T> _current= _head;
+            while (_current.Next!=null && !_current.Next.Data.Equals(value))
+            {
+                _current = _current.Next;
+                
+            }
+            if (_current.Next!=null)
+            {
+                _current.Next = _current.Next.Next;
+            }
+
+
         }
     }
 }
