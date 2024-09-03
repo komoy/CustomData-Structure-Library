@@ -31,7 +31,10 @@ namespace Custom_Data_Structure_Library
             _head = null;
         }
 
-
+        /// <summary>
+        ///  Remove item from the linked list
+        /// </summary>
+        /// <param name="value"></param>
         public void Delete(T value) 
         {
             if (_head == null) return;
