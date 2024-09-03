@@ -38,7 +38,10 @@
 
         }
 
-        // Method to resize the array
+        /// <summary>
+        /// Method to resize the array
+        /// </summary>
+        /// <param name="newSize"></param>
         public void Resize(int newSize)
         {
             T[] newArray = new T[newSize];
