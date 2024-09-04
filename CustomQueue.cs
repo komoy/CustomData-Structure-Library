@@ -38,7 +38,7 @@ namespace Custom_Data_Structure_Library
         /// Initializes the front element of the queue.
         /// </summary>
         /// <returns>The element at the front of the queue.</returns>
-        public T ElementInit()
+        public T Element()
         {
             // Implementation for initializing the front element will go here
         }
