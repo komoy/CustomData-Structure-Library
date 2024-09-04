@@ -22,7 +22,7 @@ namespace Custom_Data_Structure_Library
         {
             _queue = new T[size]; // Create an array of the specified size
             _front = 0;          // Initialize the front index to -1 (queue is empty)
-            _back = 0;
+            _back = -1;
             _count = 0;           // Initialize the count to 0 (no elements in the queue)
             _size = size;         // Set the maximum size of the queue
         }
@@ -40,17 +40,13 @@ namespace Custom_Data_Structure_Library
             }
             else
             {
-                // If this is the first element being added, initialize _front to 0
-                if (_front == -1)
-                {
-                    _front = 0;
-                }
+                // Move the back index forward, wrapping around to the start if necessary (circular queue logic)
+                _back = (_back + 1) % _queue.Length;
 
                 // Add the new item to the back of the queue
                 _queue[_back] = item;
 
-                // Move the back index forward, wrapping around to the start if necessary (circular queue logic)
-                _back = (_back + 1) % _queue.Length;
+              
 
                 // Increase the count of elements in the queue
                 _count++;
@@ -73,6 +69,11 @@ namespace Custom_Data_Structure_Library
         /// <returns>The element at the front of the queue.</returns>
         public T Element()
         {
+            if (IsEmpty())
+            {
+                throw new InvalidOperationException("Queue is empty"); // Throw an exception if the queue is empty
+            }
+
             return this._queue[this._front]; // Return the front element of the queue
         }
 
@@ -83,7 +84,7 @@ namespace Custom_Data_Structure_Library
         public T Dequeue()
         {
             // Check if the queue is empty
-            if (_count == 0)
+            if (IsEmpty())
             {
                 throw new InvalidOperationException("Queue is empty"); // Throw an exception if the queue is empty
             }
@@ -120,6 +121,12 @@ namespace Custom_Data_Structure_Library
                 // Decrement the count to move to the next element
                 count--;
             }
+        }
+
+
+        public bool IsEmpty()
+        {
+            return _count == 0;
         }
     }
 }
